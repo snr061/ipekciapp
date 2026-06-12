@@ -19,10 +19,17 @@
 - Public ikonlar: `pastacim-icon.svg`, `pastacim-pro-icon.svg` (placeholder gradient).
 - `.env.example`, `.gitignore`, `CLAUDE.md`, `docs/{PROGRESS,DECISIONS,SETUP}.md` oluşturuldu.
 
+### Tamam (devam) — 2026-06-12
+- GitHub repo: `snr061/ipekciapp` (PRIVATE), `main` push edildi. gh CLI snr061 hesabı keychain'e bağlı.
+- Vercel project: `ipekciapp-s-projects/ipekciapp` (org `ipekciapp-s-projects`). İlk production deploy başarılı.
+- Vercel env: `NEXT_PUBLIC_SITE_URL=https://ipekciapp.com` (production).
+- Domain: `ipekciapp.com` ve `www.ipekciapp.com` Vercel projeye eklendi.
+- Cloudflare DNS: `A @ → 76.76.21.21`, `CNAME www → cname.vercel-dns.com` (her ikisi de DNS-only / gri bulut). Brevo email kayıtları (DKIM/DMARC/verification) korundu.
+- SSL: Vercel otomatik (Let's Encrypt, 90 gün, auto-renew). HSTS max-age=2y.
+- Canlı: <https://ipekciapp.com> + <https://www.ipekciapp.com> tüm 7 route 200.
+
 ### Sıradaki
-- Gerçek App Store / Google Play URL'leri `apps-data.ts` üzerinden eklenecek.
-- Gerçek QR kod üretimi (`qrcode` lib veya statik PNG).
-- Gerçek ekran görüntüleri.
-- Workspace auth: Supabase Auth (Magic Link + TOTP 2FA) + middleware gate + RLS şeması.
-- Vercel'e ilk deploy + Cloudflare DNS bağlantısı.
+- GitHub: `main` branch protection (PR + review zorunlu), Vercel GitHub App bağlantısı (push'ta otomatik preview/prod).
+- Workspace auth: Supabase project `ipekciapp` env'leri, Magic Link + TOTP, middleware gate `/workspace`, RLS şema taslağı.
+- Gerçek App Store / Google Play URL'leri, gerçek QR, gerçek ekran görüntüleri.
 - `og-image` üretimi (next/og) — gelecek oturum.
