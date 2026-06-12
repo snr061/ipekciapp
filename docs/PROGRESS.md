@@ -28,8 +28,13 @@
 - SSL: Vercel otomatik (Let's Encrypt, 90 gün, auto-renew). HSTS max-age=2y.
 - Canlı: <https://ipekciapp.com> + <https://www.ipekciapp.com> tüm 7 route 200.
 
+### Tamam (devam) — 2026-06-12 (Step 2)
+- Repo görünürlüğü: PRIVATE → **PUBLIC** (GitHub Free + private'da branch protection / Rulesets kapalı olduğu için). Workspace verisi RLS ile Supabase'te koruma altında, secret yok.
+- GitHub Ruleset `main-protection` (id 17604313): `deletion`, `non_fast_forward`, `required_linear_history` — silme & force-push yasak, linear history zorunlu.
+- Vercel GitHub App bağlandı: push → otomatik production deploy + commit status (`Vercel`).
+- Git local config düzeltildi: `user.email=snr061@gmail.com`, `user.name=Soner İpekci`. Önceki commit'lerde bozuk author (`613463App@`) vardı — Vercel "no GitHub account match" hatası bu yüzdendi.
+
 ### Sıradaki
-- GitHub: `main` branch protection (PR + review zorunlu), Vercel GitHub App bağlantısı (push'ta otomatik preview/prod).
 - Workspace auth: Supabase project `ipekciapp` env'leri, Magic Link + TOTP, middleware gate `/workspace`, RLS şema taslağı.
 - Gerçek App Store / Google Play URL'leri, gerçek QR, gerçek ekran görüntüleri.
 - `og-image` üretimi (next/og) — gelecek oturum.
